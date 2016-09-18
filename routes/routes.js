@@ -1,6 +1,7 @@
 exports.dispHome = function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name.toUpperCase();
 	var d = new Date();
+	
 	var weekday = new Array(7);
 	weekday[0]=  "Sunday";
 	weekday[1] = "Monday";
@@ -10,9 +11,13 @@ exports.dispHome = function(req, res) {
 	weekday[5] = "Friday";
 	weekday[6] = "Saturday";
 	
-	var output = '<html><body>Happy ' + weekday[d.getDay()] + ', ' + name + '!';
+	var day = weekday[d.getDay()].toUpperCase();
 	
-	output += '<br><br><img src="shibe.jpg"></body></html>';
+	var output = '<html><body><font face="verdana" color="green" size="10">HAPPY ';
+	output += day + ', ' + name + '!';
+	output += '</font><br><br><font face="verdana" size="3">';
+	output += "It's currently " + d.toString();
+	output += '</font></body></html>';
 	
-    res.send(output.toUpperCase());
+    res.send(output);
 };
