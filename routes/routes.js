@@ -14,11 +14,16 @@ exports.dispHome = function(req, res) {
 
 	var day = weekday[d.getDay()].toUpperCase();
 	
-	var output = '<html><body><font face="verdana" size="10">HAPPY ';
+	var output = '<html><body><font face="verdana" size="8"><i>HAPPY ';
 	output += day + '!';
-	output += '</font><br><br>';
+	output += '</i></font><br><br><br><br>';
+	output += '<font face="verdana" size="4">PayPal Wesley: $ </font>';
+	output += '<input type="text" id="payAmount" style="width: 50px;">';
+	output += '<input type="button" id="payButton" onclick="goToPayLink()" value="Pay">';
+	output += '<script>function goToPayLink() { window.open("https://www.paypal.me/WesleyNg/" + document.getElementById("payAmount").value); }</script>';
+	output += '<br><br><br><br>';
 	output += feedWidgetCode;
-	output += '</body></html>';	
+	output += '</body></html>';
 	
     res.send(output);
 };
@@ -39,9 +44,14 @@ exports.dispGreeting = function(req, res) {
 
 	var day = weekday[d.getDay()].toUpperCase();
 	
-	var output = '<html><body><font face="verdana" size="10">HAPPY ';
+	var output = '<html><body><font face="verdana" size="8"><i>HAPPY ';
 	output += day + ', ' + name + '!';
-	output += '</font><br><br>';
+	output += '</i></font><br><br><br><br>';
+	output += '<font face="verdana" size="4">PayPal Wesley: $ </font>';
+	output += '<input type="text" id="payAmount" style="width: 50px;">';
+	output += '<input type="button" id="payButton" onclick="goToPayLink()" value="Pay">';
+	output += '<script>function goToPayLink() { window.open("https://www.paypal.me/WesleyNg/" + document.getElementById("payAmount").value); }</script>';
+	output += '<br><br><br><br>';
 	output += feedWidgetCode;
 	output += '</body></html>';
 	
