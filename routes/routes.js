@@ -1,3 +1,5 @@
+var feedWidgetCode = '<!-- start feedwind code --><iframe  height="500"  width="500" src="https://feed.mikle.com/widget/?rssmikle_url=http%3A%2F%2Fwww.reddit.com%2F.rss&rssmikle_frame_width=500&rssmikle_frame_height=500&frame_height_by_article=0&rssmikle_target=_blank&rssmikle_font=Arial%2C%20Helvetica%2C%20sans-serif&rssmikle_font_size=12&rssmikle_border=off&responsive=off&text_align=left&text_align2=left&corner=off&scrollbar=on&autoscroll=on&scrolldirection=up&scrollstep=5&mcspeed=20&sort=Off&rssmikle_title=on&rssmikle_title_sentence=Reddit%20feed&rssmikle_title_link=http%3A%2F%2Fwww.reddit.com%2F.rss&rssmikle_title_bgcolor=%234A4A4A&rssmikle_title_color=%23FFFFFF&rssmikle_item_bgcolor=%23FFFFFF&rssmikle_item_title_length=55&rssmikle_item_title_color=%230066FF&rssmikle_item_border_bottom=on&rssmikle_item_description=on&item_link=off&rssmikle_item_description_length=150&rssmikle_item_description_color=%23666666&rssmikle_item_date=gl1&rssmikle_timezone=Etc%2FGMT&datetime_format=%25b%20%25e%2C%20%25Y%20%25l%3A%25M%20%25p&item_description_style=text%2Btn&item_thumbnail=full&item_thumbnail_selection=auto&article_num=15&rssmikle_item_podcast=off&" scrolling="no" name="rssmikle_frame" marginwidth="0" marginheight="0" vspace="0" hspace="0" frameborder="0"></iframe><div style="font-size:10px; text-align:center; width:500px;"><a href="http://feed.mikle.com/" target="_blank" style="color:#CCCCCC;">RSS Feed Widget</a><!--Please display the above link in your web page according to Terms of Service.--></div><!--  end  feedwind code -->';
+
 exports.dispHome = function(req, res) {
 	var d = new Date();
 
@@ -12,11 +14,11 @@ exports.dispHome = function(req, res) {
 
 	var day = weekday[d.getDay()].toUpperCase();
 	
-	var output = '<html><body><font face="verdana" color="green" size="10">HAPPY ';
+	var output = '<html><body><font face="verdana" size="10">HAPPY ';
 	output += day + '!';
-	output += '</font><br><br><font face="verdana" size="3">';
-	output += "It's currently " + d.toString();
-	output += '</font></body></html>';
+	output += '</font><br><br>';
+	output += feedWidgetCode;
+	output += '</body></html>';	
 	
     res.send(output);
 };
@@ -37,11 +39,11 @@ exports.dispGreeting = function(req, res) {
 
 	var day = weekday[d.getDay()].toUpperCase();
 	
-	var output = '<html><body><font face="verdana" color="green" size="10">HAPPY ';
+	var output = '<html><body><font face="verdana" size="10">HAPPY ';
 	output += day + ', ' + name + '!';
-	output += '</font><br><br><font face="verdana" size="3">';
-	output += "It's currently " + d.toString();
-	output += '</font></body></html>';
+	output += '</font><br><br>';
+	output += feedWidgetCode;
+	output += '</body></html>';
 	
     res.send(output);
 };
